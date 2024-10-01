@@ -113,3 +113,39 @@ Explanation of the Config File:
 Host bastion: This section defines the connection to your bastion server. The HostName is the public IP of the bastion server, and IdentityFile specifies the private key used for authentication.
 
 Host private-instance-X: These sections define the connection to each private instance. The ProxyJump bastion directive tells SSH to first connect to the bastion server before connecting to the private instance.
+
+
+Step 2: Simplified SSH Access
+With the above configuration, you can now SSH into any of your instances with simple commands from your local machine:
+
+SSH into the Bastion Server:
+"ssh bastion"
+
+SSH into Private Server 1:
+"ssh private-server1"
+
+SSH into Private Server 2:
+"ssh private-server2"
+
+SSH into Private Server 3:
+"ssh private-server3"
+
+
+Benefits of Using an SSH Config File
+Streamlined Workflow: No need to remember and type long SSH commands. Just use the server name you defined in the config file.
+
+Multi-Hop SSH Made Easy: The ProxyJump option allows for seamless SSH connections through the bastion server, making multi-hop SSH effortless.
+
+Centralized Key Management: You don’t need to specify the private key file with each command; it’s all handled by the config file.
+
+Security Note
+Ensure that your ~/.ssh/config file is secure by setting appropriate permissions:
+
+"chmod 600 ~/.ssh/config"
+
+This will prevent unauthorized users from viewing or modifying your SSH configuration.
+
+If you want to push your project into github, make sure to write the keyfiles name in the .gitignore file.
+
+Conclusion
+By using the SSH config file, you can significantly simplify and secure your SSH access to multiple instances, especially when dealing with bastion servers and private instances. This approach not only saves time but also reduces the potential for errors in your SSH workflow.
