@@ -1,0 +1,11 @@
+name: InfraForSSH
+runtime:
+  name: python
+  options:
+    toolchain: pip
+    virtualenv: venv
+description: Created project "Infra for SSH"
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-python

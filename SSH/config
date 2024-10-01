@@ -1,0 +1,22 @@
+Host bastion
+    HostName <bastion-server-ip>
+    User ubuntu
+    IdentityFile <path-to-your-key-file>/BastionServer.pem
+
+Host private-server1
+    HostName <private-server1-ip>
+    User ubuntu
+    IdentityFile <path-to-your-key-file>/PrivateServer1.pem
+    ProxyJump bastion
+
+Host private-server2
+    HostName <private-server2-ip>
+    User ubuntu
+    IdentityFile <path-to-your-key-file>/PrivateServer2.pem
+    ProxyJump bastion
+
+Host private-server3
+    HostName <private-server3-ip>
+    User ubuntu
+    IdentityFile <path-to-your-key-file>/PrivateServer2.pem
+    ProxyJump bastion
